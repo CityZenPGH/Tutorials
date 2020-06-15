@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Using Parcel with OpenLayers</title>
+      <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
-      #map {
-        width: 800px;
-        height: 850px;
+      .map {
+        height: 600px;
+        width: 100%;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
   </head>
   <body>
-    <div id="map"></div>
-    <script src="./index.js"></script>
+      <h2>Adding an Icon</h2>
+    <div id="map" class="map"><div id="popup"></div></div>
+    <script src="index.js"></script>
   </body>
 </html>
