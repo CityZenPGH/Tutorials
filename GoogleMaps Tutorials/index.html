@@ -76,7 +76,7 @@
           }
     
           // Adds a marker to the map.
-          function addMarker(location, map) {
+          function addMarker(location, map, iconIdx) {
             var contentString = '<div id="content">'+
                 '<div id="siteNotice">'+
                 '</div>'+
@@ -98,7 +98,7 @@
             var marker = new google.maps.Marker({
               position: location,
               draggable: true,
-              icon: icons['bicycling'].icon,
+              icon: icons[iconIdx].icon,
               map: map
             });
             marker.addListener('click', function() {
