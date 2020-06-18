@@ -90,9 +90,10 @@
             var marker = new google.maps.Marker({
               position: location,
               draggable: true,
+              icon: decideIdx(marker),
               map: map
             });
-            decideIdx(marker);
+
             marker.addListener('click', function() {
                 infowindow.open(map, marker);
             });
@@ -108,13 +109,13 @@
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link" onclick="initialize(0);"><img src="icons/cycling.png" alt="Logo""></a>
+                <a class="nav-link" onclick="decideIdx('cycling');"><img src="icons/cycling.png" alt="Logo""></a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" onclick="initialize(1);"><img src="icons/tree.png" alt="Logo""></a>
+                <a class="nav-link" onclick="decideIdx('tree');"><img src="icons/tree.png" alt="Logo""></a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" onclick="initialize(2);"><img src="icons/traffic light.png" alt="Logo""></a>
+                <a class="nav-link" onclick="decideIdx('traffic_light');"><img src="icons/traffic light.png" alt="Logo""></a>
                 </li>
             </ul>     
         </nav>
