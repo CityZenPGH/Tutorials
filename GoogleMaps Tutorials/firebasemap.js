@@ -1,17 +1,22 @@
 /**
  * Firebase config block.
  */
-var config = {
-apiKey: 'AIzaSyBvGmQSKkJ4g7kmsHggOhCKK5Rz6juzBs0',
-authDomain: 'maps-docs-team.firebaseapp.com',
-databaseURL: 'https://maps-docs-team.firebaseio.com',
-projectId: 'maps-docs-team',
-storageBucket: 'maps-docs-team.appspot.com',
-messagingSenderId: '285779793579'
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyB1BeLeNHjO9-fAZV_nVCtZKud7I4_FsYI",
+    authDomain: "cityzen-280417.firebaseapp.com",
+    databaseURL: "https://cityzen-280417.firebaseio.com",
+    projectId: "cityzen-280417",
+    storageBucket: "cityzen-280417.appspot.com",
+    messagingSenderId: "618311008905",
+    appId: "1:618311008905:web:a77b2048f7ec8c25e4bc58",
+    measurementId: "G-7PWPK9YNFN"
 };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
-firebase.initializeApp(config);
-
+var firebase = new Firebase("https://cityzen-280417.firebaseio.com");
 /**
  * Data object to be written to Firebase.
  */
@@ -59,6 +64,15 @@ function initAuthentication(onAuthSuccess) {
     });
 }
 
+var marker;
+var iconBase =
+      'icons/';
+
+    var icons = {
+        bicycling: {
+            icon: iconBase + 'cycling.png'
+        }
+    };
 /**
  * Creates a map object with a click listener and a heatmap.
  */
@@ -86,29 +100,19 @@ function initMap() {
 
     // Listen for clicks and add the location of the click to firebase.
     map.addListener('click', function(e) {
-    data.lat = e.latLng.lat();
-    data.lng = e.latLng.lng();
-    addToFirebase(data);
+        data.lat = e.latLng.lat();
+        data.lng = e.latLng.lng();
+        addToFirebase(data);
     });
 
-    // Create a heatmap.
-    var heatmap = new google.maps.visualization.HeatmapLayer({
-    data: [],
-    map: map,
-    radius: 16
-    });
-
-    initAuthentication(initFirebase.bind(undefined, heatmap));
+    initAuthentication(initFirebase.bind(undefined, map));
 }
 
 /**
  * Set up a Firebase with deletion on clicks older than expiryMs
  * @param {!google.maps.visualization.HeatmapLayer} heatmap The heatmap to
  */
-function initFirebase(heatmap) {
-
-    // 10 minutes before current time.
-    var startTime = new Date().getTime() - (60 * 10 * 1000);
+function initFirebase(map) {
 
     // Reference to the clicks in Firebase.
     var clicks = firebase.database().ref('clicks');
@@ -118,33 +122,37 @@ function initFirebase(heatmap) {
     function(snapshot) {
         // Get that click from firebase.
         var newPosition = snapshot.val();
-        var point = new google.maps.LatLng(newPosition.lat, newPosition.lng);
-        var elapsedMs = Date.now() - newPosition.timestamp;
+
+        marker = new google.maps.Marker({ 
+            position: newPosition,
+            icon: icons['bicycling'].icon,
+            map: map
+        });
 
         // Add the point to the heatmap.
-        heatmap.getData().push(point);
+        map.getData().push(marker);
 
         // Request entries older than expiry time (10 minutes).
         var expiryMs = Math.max(60 * 10 * 1000 - elapsedMs, 0);
 
         // Set client timeout to remove the point after a certain time.
         window.setTimeout(function() {
-        // Delete the old point from the database.
-        snapshot.ref.remove();
+          // Delete the old point from the database.
+          snapshot.ref.remove();
         }, expiryMs);
     }
     );
 
     // Remove old data from the heatmap when a point is removed from firebase.
     clicks.on('child_removed', function(snapshot, prevChildKey) {
-    var heatmapData = heatmap.getData();
-    var i = 0;
-    while (snapshot.val().lat != heatmapData.getAt(i).lat()
-        || snapshot.val().lng != heatmapData.getAt(i).lng()) {
-        i++;
-    }
-    heatmapData.removeAt(i);
-    });
+        var mapData = heatmap.getData();
+        var i = 0;
+        while (snapshot.val().lat != mapData.getAt(i).lat()
+          || snapshot.val().lng != mapData.getAt(i).lng()) {
+          i++;
+        }
+        mapData.removeAt(i);
+      });
 }
 
 /**
