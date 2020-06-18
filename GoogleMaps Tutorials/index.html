@@ -29,18 +29,15 @@
   <body>
     <div id="map"></div>
     <div class="container">
+        
         <nav class="navbar navbar-expand-sm bg-light navbar-light">
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <input type="button" class="btn btn-primary" onclick="decideIdx(0)" value="Bike">
-                <a class="nav-link" onclick="decideIdx('cycling');"><img src="icons/cycling.png" alt="Logo""></a>
+                <a class="nav-link" onclick="decideIdx('bicycling');"><img src="icons/cycling.png" alt="Logo""></a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" onclick="decideIdx('tree');"><img src="icons/tree.png" alt="Logo""></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" onclick="decideIdx('traffic_light');"><img src="icons/traffic light.png" alt="Logo""></a>
                 </li>
             </ul>     
         </nav>
@@ -61,7 +58,7 @@
               }
             };
 
-        var markerIdx;
+        var markerIdx = 0;
 
         function decideIdx(iconIdx){
             markerIdx = iconIdx;
@@ -85,13 +82,13 @@
     
             // This event listener calls addMarker() when the map is clicked.
             google.maps.event.addListener(map, 'click', function(event) {
-              addMarker(event.latLng, map, idx);
+              addMarker(event.latLng, map);
             });
     
           }
     
           // Adds a marker to the map.
-          function addMarker(location, map, iconIdx) {
+          function addMarker(location, map) {
             var contentString = '<div id="content">'+
                 '<div id="siteNotice">'+
                 '</div>'+
