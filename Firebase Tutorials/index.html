@@ -2,6 +2,21 @@
 <html>
   <head>
     <title>GeoFire HTML5 Geolocation API Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
@@ -9,14 +24,16 @@
 
     <!-- GeoFire -->
     <script src="https://cdn.firebase.com/libs/geofire/5.0.1/geofire.min.js"></script>
-
-    <!-- Custom JS -->
-    <script src="js/html5Geolocation.js" defer></script>
-
+    <script src="geoLocation.js" defer></script>
   </head>
 
   <body>
     <!-- Message log -->
     <div id="log"></div>
+    <div id="map"></div>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvGmQSKkJ4g7kmsHggOhCKK5Rz6juzBs0&callback=initMap">
+    </script>
   </body>
 </html>
