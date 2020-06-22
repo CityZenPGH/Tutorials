@@ -3,7 +3,7 @@
  */
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyB1BeLeNHjO9-fAZV_nVCtZKud7I4_FsYI",
+    apiKey: "AIzaSyBvGmQSKkJ4g7kmsHggOhCKK5Rz6juzBs0",
     authDomain: "cityzen-280417.firebaseapp.com",
     databaseURL: "https://cityzen-280417.firebaseio.com",
     projectId: "cityzen-280417",
