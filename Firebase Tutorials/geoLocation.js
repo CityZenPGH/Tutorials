@@ -43,7 +43,6 @@
 
     // Adds a marker to the map.
     function addMarker(location, map) {
-        
         // Add the marker at the clicked location, and add the next-available label
         // from the array of alphabetical characters.
         var marker = new google.maps.Marker({
@@ -72,14 +71,20 @@
             streetViewControl: false,
         });
 
+        var bikelogo = document.getElementById("cycling");
+        bikelogo.onclick = function(){
+            markerIdx = 'bicycling';
+        }
+
+        var treelogo = document.getElementById("tree");
+        treelogo.onclick = function(){
+            markerIdx = 'tree';
+        }
+
         // This event listener calls addMarker() when the map is clicked.
         google.maps.event.addListener(map, 'click', function(event) {
-            addMarker(event.latLng, map);
+            addMarker(event.latLng, map, markerIdx);
         });
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-
-        document.getElementById("cycling").onclick = decideIdx('bicycling');
 
     }
     
@@ -90,18 +95,6 @@
         } else {
         log("Your browser does not support the HTML5 Geolocation API, so this demo will not work.")
         }
-    };
-
-    var customMarker = function(location, map){
-        // Add the marker at the clicked location, and add the next-available label
-        // from the array of alphabetical characters.
-        var marker = new google.maps.Marker({
-            position: location,
-            draggable: true,
-            icon: icons[markerIdx].icon,
-            map: map
-        });
-
     };
     
     /* Callback method from the geolocation API which receives the current user's location */
@@ -120,6 +113,6 @@
     
     // Get the current user's location
     getLocation();
-
+    google.maps.event.addDomListener(window, 'load', initialize);
 })();
 
