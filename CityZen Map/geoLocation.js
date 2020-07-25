@@ -96,7 +96,7 @@
         var curLoc = {lat: latitude, lng: longitude};
         var map = new google.maps.Map(
         document.getElementById('map'), {
-            zoom: 17.5, 
+            zoom: 15, 
             center: curLoc,
             styles: [{
                 featureType: 'poi',
