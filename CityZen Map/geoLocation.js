@@ -49,7 +49,7 @@
     function decideIdx(iconIdx){
         markerIdx = iconIdx;
     }
-
+    counter = 0;
     // Adds a marker to the map.
     function addMarker(location, map) {
 
@@ -76,6 +76,7 @@
         });
         // Add the marker at the clicked location, and add the next-available label
         // from the array of alphabetical characters.
+    
         var marker = new google.maps.Marker({
           position: location,
           draggable: true,
@@ -88,8 +89,6 @@
 
         
         infowindow.open(map, marker);
-
-
     }
 
     var showMap = function initMap(latitude, longitude){
@@ -108,6 +107,9 @@
             }],
             disableDoubleClickZoom: true,
             streetViewControl: false,
+            mapTypeControl: false,
+            fullScreenControl: false,
+            scaleControl: false
         });
 
         var bikelogo = document.getElementById("cycling");
@@ -147,12 +149,11 @@
         bikelogo.onclick = function(){
             markerIdx = 'other';
         }
- 
 
         // This event listener calls addMarker() when the map is clicked.
         google.maps.event.addListener(map, 'click', function(event) {
+        
             addMarker(event.latLng, map, markerIdx);
-
         });
 
     }
@@ -170,9 +171,8 @@
     var geolocationCallback = function(location) {
         var latitude = location.coords.latitude;
         var longitude = location.coords.longitude;
-        // geoFireInstance.set(username, [latitude, longitude]).then(function() {
-            
-        // });
+        
+
         // geoFireInstance.get("Katelyn", [latitude, longitude]).then(function() {
         //     log("Got location of " + latitude + ", " + longitude);
         // });
