@@ -19,16 +19,25 @@
 
         var icons = {
           bicycling: {
-            icon: iconBase + 'cycling.png'
+            icon: iconBase + 'bike_map.png'
           },
 		  tree: {
-			icon: iconBase + 'tree.png'
+			icon: iconBase + 'tree_map.png'
 		  },
-		  cone: {
-			icon: iconBase + 'cone.png'
+		  traffic: {
+			icon: iconBase + 'traffic-light_map.png'
           },
-          light: {
-              icon: iconBase + 'light.png'
+          station: {
+              icon: iconBase + 'station_map.png'
+          },
+          parking: {
+              icon: iconBase + 'parking_map.png'
+          },
+          pedestrians: {
+              icon: iconBase + 'walk_map.png'
+          },
+          other: {
+              icon: iconBase + 'more_map.png'
           }
         };
     
@@ -73,9 +82,13 @@
           icon: icons[markerIdx].icon,
           map: map
         });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
 
         
         infowindow.open(map, marker);
+
 
     }
 
@@ -106,6 +119,35 @@
         treelogo.onclick = function(){
             markerIdx = 'tree';
         }
+
+
+        var bikelogo = document.getElementById("traffic");
+        bikelogo.onclick = function(){
+            markerIdx = 'traffic';
+        }
+
+        var treelogo = document.getElementById("station");
+        treelogo.onclick = function(){
+            markerIdx = 'station';
+        }
+
+
+        var bikelogo = document.getElementById("parking");
+        bikelogo.onclick = function(){
+            markerIdx = 'parking';
+        }
+
+        var treelogo = document.getElementById("pedestrians");
+        treelogo.onclick = function(){
+            markerIdx = 'pedestrians';
+        }
+
+
+        var bikelogo = document.getElementById("other");
+        bikelogo.onclick = function(){
+            markerIdx = 'other';
+        }
+ 
 
         // This event listener calls addMarker() when the map is clicked.
         google.maps.event.addListener(map, 'click', function(event) {
