@@ -23,7 +23,6 @@
         padding: 0;
       }
 
-
 /* Full-width inputs */
 input[type=text], input[type=password] {
   width: 100%;
@@ -101,7 +100,8 @@ span.psw {
             <a class="nav-link" onclick="document.getElementById('id01').style.display='block'">Login</a>
             <!-- The Modal -->
             <div id="id01" class="modal">
-              <span onclick="document.getElementById('id01').style.display='none'" 
+              <div class="col-md-7">
+                <span onclick="document.getElementById('id01').style.display='none'" 
             class="close" title="Close Modal">&times;</span>
 
               <!-- Modal Content -->
@@ -126,6 +126,9 @@ span.psw {
                   <span class="psw">Forgot <a href="#">password?</a></span>
                 </div>
               </form>
+
+              </div>
+              
             </div>
           </li>
           <li class="nav-item">
