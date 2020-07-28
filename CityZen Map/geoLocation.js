@@ -11,13 +11,10 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    // Generate a random Firebase location
-    var database = firebase.database().ref().push();
-
-    var iconBase =
-            'icons/';
-
-        var icons = {
+    var database = firebase.database();
+    var iconBase ='icons/';
+    data = {type: null, location: null};
+    var icons = {
           bicycling: {
             icon: iconBase + 'bike_map.png'
           },
@@ -40,19 +37,18 @@
               icon: iconBase + 'more_map.png'
           }
         };
-    
-    // Create a new GeoFire instance at the random Firebase location
-    var geoFireInstance = new geofire.GeoFire(database);
 
-    var markerIdx = 0;
-
-    function decideIdx(iconIdx){
-        markerIdx = iconIdx;
+    function writeUserData(markerType, location, count){
+        count += 1
+        firebase.database().ref('count/' + count).set({
+            type: markerType,
+            location:location
+        });
     }
+    var markerIdx = null;
     counter = 0;
     // Adds a marker to the map.
     function addMarker(location, map) {
-
         //@Olivia put the form stuff in the the function here?
         var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
@@ -149,11 +145,15 @@
         bikelogo.onclick = function(){
             markerIdx = 'other';
         }
+  
 
         // This event listener calls addMarker() when the map is clicked.
         google.maps.event.addListener(map, 'click', function(event) {
-        
+            alert(event.latLng);
+            data.type = markerIdx;
+            data.location = event.latLng;
             addMarker(event.latLng, map, markerIdx);
+            var clicks = firebase.database.ref('markers').push(data);
         });
 
     }
@@ -171,8 +171,6 @@
     var geolocationCallback = function(location) {
         var latitude = location.coords.latitude;
         var longitude = location.coords.longitude;
-        
-
         // geoFireInstance.get("Katelyn", [latitude, longitude]).then(function() {
         //     log("Got location of " + latitude + ", " + longitude);
         // });
