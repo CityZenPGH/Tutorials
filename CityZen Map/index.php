@@ -45,20 +45,26 @@ session_start();
           <img src="CityZenLogo.png" alt="Logo" style="width:30px;">
         </a>
         <ul class="navbar-nav">
+        <?php if(!isset($_SESSION['name'])) { ?>
           <li class="nav-item">
             <a class="nav-link" href="login.html">Login</a>
           </li>
+        <?php } ?>
+        <?php if(isset($_SESSION['name'])) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="profile.html">Profile</a>
+            <a class="nav-link" href="profile.html"><?php echo $_SESSION['name']; ?>'s Profile</a>
           </li>
+          <?php } ?>
+          <?php if(isset($_SESSION['name'])) { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Logout</a>
+            <?php session_destroy(); ?>
+          </li>
+          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" href="about.html">How CityZen Works</a>
           </li>
-	<?php if(isset($_SESSION['name'])) { ?>
-	  <li class="nav-item" style="margin-left: 30px;">
-		Welcome, <?php echo $_SESSION['name']; ?>!
-	  </li>
-	<?php } ?>
+
         </ul>
       </nav>
     </div>
