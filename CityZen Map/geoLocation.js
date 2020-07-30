@@ -1,4 +1,7 @@
 (function(){
+    '<?php'+
+    'session_start();'+
+    '?>'
     var firebaseConfig = {
         apiKey: "AIzaSyCzSHHJ_u3vD2R2_CX3013GAl-8rYE58r0",
         authDomain: "cityzen-280417.firebaseapp.com",
@@ -51,29 +54,31 @@
     function addMarker(location, map) {
         
         //@Olivia put the form stuff in the the function here?
-        var contentString = '<div class="card-body">'+
-        '<h3>'+'Make a Suggestion'+'</h3'+
-        '<form>'+
-            '<div class="input-group form-group">'+
-                '<div class="input-group-prepend">'+
-                    '<span class="input-group-text"><i class="fas fa-user"></i></span>'+
-                '</div>'+
-                '<input type="text" name="username" id="username" class="form-control" placeholder="username">'+
-                
-            '</div>'+
-            '<div class="input-group form-group">'+
-                '<div class="input-group-prepend">'+
-                    '<span class="input-group-text"><i class="fas fa-key"></i></span>'+
-                '</div>'+
-                '<input type="password" name="password" id="password" class="form-control" placeholder="password">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<input type="submit" value="Login" class="btn float-right login_btn">'+
-            '</div>'+
-        '</form>'+
-    '</div>'
+        var contentString = '<form action="suggestion.php" method="post">'+
+        '<div class="form-group">'+
+          '<label for="Title">Title:</label>'+
+          '<input type="title" class="form-control" placeholder="Title of Suggestion" id="title">'+
+        '</div>'+
+        '<div class="form-group">'+
+          '<label for="descr">Description: </label>'+
+          '<textarea class="form-control" rows="4" id="descr" placeholder="Give a description of your suggestion"></textarea>'+
+        '</div>'+
+        '<div class="form-group">'+
+            '<label for="category">Select Category:</label>'+
+            '<select class="form-control" id="category">'+
+                '<option>Bike Infrastructure</option>'+
+                '<option>Parks</option>'+
+                '<option>Traffic</option>'+
+                '<option>Public Transit Stations</option>'+
+                '<option>Parking</option>'+
+                '<option>Pedestrians</option>'+
+                '<option>Other</option>'+
+            '</select>'+
+        '</div>'+
+        '<button type="submit" class="btn btn-primary">Submit</button>'+
+      '</form>'
 
-        var infowindow = new google.maps.InfoWindow({
+        var sugwindow = new google.maps.InfoWindow({
             content: contentString
         });
         // Add the marker at the clicked location, and add the next-available label
@@ -90,7 +95,7 @@
         });
 
         
-        infowindow.open(map, marker);
+        sugwindow.open(map, marker);
     }
 
     var showMap = function initMap(latitude, longitude){
