@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title id = "header" ></title>
+	<title id = "header" >
+		<?php $_SESSION['username']?>'s Profile'
+	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -43,40 +45,49 @@
 </head>
 
 <body>
+<body>
+    <div>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="index.html">
+          <img src="CityZenLogo.png" alt="Logo" style="width:30px;">
+        </a>
+        <ul class="navbar-nav">
+        <?php if(!isset($_SESSION['username'])) { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>
+        <?php } ?>
+        <?php if(!isset($_SESSION['username'])) { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="registration.php">Register</a>
+          </li>
+        <?php } ?>
+        
+          
+          <?php if(isset($_SESSION['username'])) { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+          <?php } ?>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="about.php">How CityZen Works</a>
+          </li>
 
-<div class="jumbotron text-center w-100" style="margin-bottom:0">
-	<img id="profilePic" src="#" class="img-fluid rounded" style="height: 300px" alt="Profile Picture">
-	<!-- profileName: User's Name at top of page -->
-	<h1 id="profileName"></h1>
-	<!-- profileID: User's ID-->
-	<h4 id="profileID"></h4>
-	<!-- profileBio: User's Bio -->
-	<p id="profileBio"></p> 
-</div>
+        </ul>
+      </nav>
+    </div>
+
+	<div class="jumbotron text-center w-100" style="margin-bottom:0">
+		<!-- profileName: User's Name at top of page -->
+		<h1 id="profileName">
+		<?php echo $_SESSION['username'] ?>'s Profile
+		</h1>
+	</div>
 
 
-<!--
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="index.html">
-	<img src="CityZenLogo.png" alt="Logo" style="width:30px;">
-  </a>
-  <ul class="navbar-nav">
-	<li class="nav-item">
-	  <a class="nav-link" href="login.html">Login</a>
-	</li>
-	<li class="nav-item">
-	  <a class="nav-link" href="profile.html">Profile</a>
-	</li>
-	<li class="nav-item">
-	  <a class="nav-link" href="about.html">How CityZen Works</a>
-	</li>
-  </ul>
-</nav>
--->
-
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	<a class="navbar-brand" href="index.html">Map</a>
+	<a class="navbar-brand" href="home.php">Map</a>
 	
 	<div class="collapse navbar-collapse justify-content-center">
 		<ul class="navbar-nav" style="padding-left: 50px;">
@@ -95,12 +106,6 @@
 		</ul>
 	</div>
 	
-	<!--
-	<a class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="search" placeholder="Search">
-			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	</a>
-	-->
 	
 	<a class="navbar-brand" href="#">Search</a>
 </nav>
@@ -111,35 +116,20 @@
 
 
 <script>
-	// Set the configuration for your app
-	// TODO: Replace with your project's config object
-	/*
-	var config = {
-	apiKey: "apiKey",
-	authDomain: "projectId.firebaseapp.com",
-	databaseURL: "https://databaseName.firebaseio.com",
-	storageBucket: "bucket.appspot.com"
-	};
-	firebase.initializeApp(config);
 
-	// Get a reference to the database service
-	var database = firebase.database();
-	*/
-
-
-	var json = '{"ID": "joco2599", "pic": "PP.jpg", "name": "Joe", "bio": "hi my name is joe what\'s up"}';
-	var obj = JSON.parse(json);
+	// var json = '{"ID": "joco2599", "pic": "PP.jpg", "name": "Joe", "bio": "hi my name is joe what\'s up"}';
+	// var obj = JSON.parse(json);
 	
-	var userName = obj.name;
-	var userID = obj.ID;
-	var userBio = obj.bio;
-	var userPic = obj.pic;
+	// var userName = obj.name;
+	// var userID = obj.ID;
+	// var userBio = obj.bio;
+	// var userPic = obj.pic;
 	
-	document.getElementById("header").innerHTML = userName + "'s Page";
-	document.getElementById("profileName").innerHTML = userName;
-	document.getElementById("profileID").innerHTML = "@" + userID;
-	document.getElementById("profileBio").innerHTML = userBio;
-	document.getElementById("profilePic").src = userPic;
+	// document.getElementById("header").innerHTML = userName + "'s Page";
+	// document.getElementById("profileName").innerHTML = userName;
+	// document.getElementById("profileID").innerHTML = "@" + userID;
+	// document.getElementById("profileBio").innerHTML = userBio;
+	// document.getElementById("profilePic").src = userPic;
 	
 	var userPostsCount = "3";
 	var userFollowersCount = "15";

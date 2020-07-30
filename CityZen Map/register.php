@@ -11,7 +11,7 @@ $password = "";
 if ($_POST['password'] != $_POST['verify_password']){
     exit('Passwords do not match!');
 } else {
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 }
 
 $username = $_POST['username'];
@@ -22,7 +22,7 @@ $sql = "INSERT INTO accounts (username, password, email)
   // use exec() because no results are returned
   $stmt = $con->prepare($sql);
   $stmt->execute(array($username, $password, $email));
-  
+
   $_SESSION['username'] = $username;
   $_SESSION['password'] = $password;
   header('Location: home.php');

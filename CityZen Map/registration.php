@@ -139,7 +139,7 @@ margin-left: 4px;
 
     <header>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="CityZenLogo.png" alt="Logo" style="width:30px;">
                 </a>
                 <ul class="navbar-nav">
@@ -147,7 +147,7 @@ margin-left: 4px;
                     <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="about.html">How CityZen Works</a>
+                    <a class="nav-link" href="about.php">How CityZen Works</a>
                     </li>
                 </ul>
                 </nav>
@@ -205,7 +205,7 @@ margin-left: 4px;
               
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        Already have an account?<a href="login.html">Sign In</a>
+                        Already have an account?<a href="login.php">Sign In</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="#">Forgot your password?</a>

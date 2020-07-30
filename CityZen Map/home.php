@@ -41,7 +41,7 @@ session_start();
   <body>
     <div>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="CityZenLogo.png" alt="Logo" style="width:30px;">
         </a>
         <ul class="navbar-nav">
@@ -68,7 +68,7 @@ session_start();
           <?php } ?>
           
           <li class="nav-item">
-            <a class="nav-link" href="about.html">How CityZen Works</a>
+            <a class="nav-link" href="about.php">How CityZen Works</a>
           </li>
 
         </ul>
