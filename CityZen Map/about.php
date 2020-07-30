@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang = "en">
   <head>
@@ -36,7 +39,7 @@
   <body>
 
     <div>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="index.html">
           <img src="CityZenLogo.png" alt="Logo" style="width:30px;">
         </a>
@@ -48,20 +51,24 @@
         <?php } ?>
         <?php if(!isset($_SESSION['username'])) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="register.html">Register</a>
+            <a class="nav-link" href="registration.php">Register</a>
           </li>
         <?php } ?>
         <?php if(isset($_SESSION['username'])) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="profile.html"><?php echo $_SESSION['username']; ?>'s Profile</a>
+            <a class="nav-link" href="profile.php"><?php echo $_SESSION['username']; ?>'s Profile</a>
           </li>
           <?php } ?>
+          
           <?php if(isset($_SESSION['username'])) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Logout</a>
-            <?php session_destroy(); ?>
+            <a class="nav-link" href="logout.php">Logout</a>
           </li>
           <?php } ?>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">How CityZen Works</a>
+          </li>
 
         </ul>
       </nav>

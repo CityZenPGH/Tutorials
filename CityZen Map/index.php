@@ -59,7 +59,7 @@ session_start();
         <?php } ?>
         <?php if(isset($_SESSION['username'])) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="profile.html"><?php echo $_SESSION['username']; ?>'s Profile</a>
+            <a class="nav-link" href="profile.php"><?php echo $_SESSION['username']; ?>'s Profile</a>
           </li>
           <?php } ?>
           <?php if(isset($_SESSION['username'])) { ?>
