@@ -141,6 +141,9 @@ margin-left: 4px;
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link" href="about.html">Register</a>
+                    </li>
+                    <li class="nav-item">
                     <a class="nav-link" href="about.html">How CityZen Works</a>
                     </li>
                 </ul>

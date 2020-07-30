@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+echo $_SESSION["userName"];
+?>
 <!DOCTYPE html>
 <html lang = "en">
   <head>
@@ -41,7 +46,7 @@
         @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('file:///Users/katelynmorrison/Desktop/CityZen/Tutorials/CityZen%20Map/Pittsburgh.png');
+background-image: url('file:///Users/katelynmorrison/Desktop/CityZen/Tutorials/Pittsburgh.png');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -54,7 +59,7 @@ align-content: center;
 }
 
 .card{
-height: 480px;
+height: 430px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -141,7 +146,7 @@ margin-left: 4px;
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="about.html">How CityZen Works</a>
@@ -166,40 +171,31 @@ margin-left: 4px;
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="register.php" method="post">
+                      
                       <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="first name">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="last name">
-                      </div>
-                      <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="username">
+                        <input type="text" name="username" id="username" class="form-control" placeholder="username">
                     </div>
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control" placeholder="email address">
+                          <input type="text" name="email" id="email" class="form-control" placeholder="email address">
                       </div>
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
-                          <input type="password" class="form-control" placeholder="password">
+                          <input type="password" name="password" id="password" class="form-control" placeholder="password">
                       </div>
                       <div class="input-group form-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" class="form-control" placeholder="verify password">
+                        <input type="password" name="verify_password" id="verify_password" class="form-control" placeholder="verify password">
                       </div>
                       <div class="form-group">
                         <input type="submit" value="Register" class="btn float-right login_btn">

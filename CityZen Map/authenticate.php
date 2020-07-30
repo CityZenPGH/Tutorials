@@ -14,9 +14,10 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
         if (password_verify($_POST['password'], $res['password'])) {
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
-            $_SESSION['name'] = $_POST['username'];
+            $_SESSION['username'] = $_POST['username'];
             $_SESSION['id'] = $id;
-            header('Location: index.php');
+            header('Location: home.php');
+            exit;
         } else {
             echo 'Incorrect password!';
         }

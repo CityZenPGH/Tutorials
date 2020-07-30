@@ -49,23 +49,29 @@
     counter = 0;
     // Adds a marker to the map.
     function addMarker(location, map) {
+        
         //@Olivia put the form stuff in the the function here?
-        var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Bicycling Suggestion</h1>'+
-      '<div id="bodyContent">'+
-      '<p><b>Suggestion</b>, A bike lane should be added at this location please. </p>'+
-      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-      '<img src="icons/bicycle.jpeg"></img>.</p>'+
-      '</div>'+
-      '</div>';
-        // var infowindow = new google.maps.InfoWindow({
-        //     content: function(){
-        //         //PUT FORM CONTENT HERE
-        //     }
-        // });
+        var contentString = '<div class="card-body">'+
+        '<h3>'+'Make a Suggestion'+'</h3'+
+        '<form>'+
+            '<div class="input-group form-group">'+
+                '<div class="input-group-prepend">'+
+                    '<span class="input-group-text"><i class="fas fa-user"></i></span>'+
+                '</div>'+
+                '<input type="text" name="username" id="username" class="form-control" placeholder="username">'+
+                
+            '</div>'+
+            '<div class="input-group form-group">'+
+                '<div class="input-group-prepend">'+
+                    '<span class="input-group-text"><i class="fas fa-key"></i></span>'+
+                '</div>'+
+                '<input type="password" name="password" id="password" class="form-control" placeholder="password">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<input type="submit" value="Login" class="btn float-right login_btn">'+
+            '</div>'+
+        '</form>'+
+    '</div>'
 
         var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -149,7 +155,7 @@
 
         // This event listener calls addMarker() when the map is clicked.
         google.maps.event.addListener(map, 'click', function(event) {
-            alert(event.latLng);
+            // alert(event.latLng);
             data.type = markerIdx;
             data.location = event.latLng;
             addMarker(event.latLng, map, markerIdx);
