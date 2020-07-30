@@ -136,7 +136,7 @@ margin-left: 4px;
 
     <header>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="CityZenLogo.png" alt="Logo" style="width:30px;">
                 </a>
                 <ul class="navbar-nav">

@@ -40,7 +40,7 @@ session_start();
 
     <div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="CityZenLogo.png" alt="Logo" style="width:30px;">
         </a>
         <ul class="navbar-nav">
@@ -89,14 +89,14 @@ session_start();
                     Pittsburgh achieve a state of peace aka 'Zen'.
                     </p> <b>The current version is CityZen is a minimum viable product. Check back often for more features as they are developed.</b>
                 </div>
-                <div class="col-md-5">
-                  <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" src="DanYates.png"</img>
+                <!-- <div class="col-md-5"> -->
+                  <!-- <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" src="DanYates.png"</img> -->
                   
                   <br>
                   <br>
                   <br>
-                  <div class="col-md-12" style="text-align: center;">
-                      <div class="col-md-12" style="text-align: center;">
+                  <!-- <div class="col-md-12" style="text-align: center;"> -->
+                      <!-- <div class="col-md-12" style="text-align: center;">
                         <img src = "swansonlogo.png" width="155" height="90" </img>
                       </div>
                       <br>
@@ -104,13 +104,13 @@ session_start();
                       <div class="col-md-12" style="text-align: center;">
                         <img src="rw-logo.png" width="155" height="90" </img>
                       </div>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div> -->
                 
-              </div>
-
-              <hr class="featurette-divider">
-
+              <!-- </div> -->
+          </div>
+          
+<!-- 
           <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
           <br>    
           <div class="container-md"><h2>Demo</h2></div>
@@ -120,18 +120,20 @@ session_start();
           <div class="embed-container">
               <iframe src="https://www.youtube.com/embed/gJkw-pZYYy8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               
-          </div>
-        <br>
+          </div> -->
+        <!-- <br>
           <div class="container-md">
               <p class="lead">CityZen is easy to use and accessible from your browser. Start changing your city today!</p>
-          </div>
+          </div> -->
 
           <hr class="featurette-divider">
      
           <!-- Three columns of text below the carousel -->
       
           <!-- START THE FEATURETTES -->
-      
+                
+          <br>
+          
       
       
           <div class="row featurette">
@@ -163,19 +165,19 @@ session_start();
               <p class="lead">Tell the city what is most important to you by up-voting on suggestions.</p>
             </div>
             <br>
-            <div class="col-md-5">
+            <!-- <div class="col-md-5">
                 <div class="col-lg-12" style="text-align: center;">
                   <img class="bd-placeholder-img rounded-circle" width="250" height="250" src="fullside.png" </img>
-                </div><!-- /.col-lg-4 -->
-                <hr>
+                </div> /.col-lg-4 -->
+                <!-- <hr>
                 <div class="col-lg-12" style="text-align: center;">
                     <img class="bd-placeholder-img rounded-circle" width="250" height="250" src="side.png" </img>             
-                </div><!-- /.col-lg-4 -->
-                <hr>
+                </div>/.col-lg-4 -->
+                <!-- <hr>
                 <div class="col-lg-12" style="text-align: center;">
                     <img class="bd-placeholder-img rounded-circle" width="250" height="250" src="back.png" </img>              
-                </div><!-- /.col-lg-4 -->
-            </div>
+                </div>/.col-lg-4 -->
+            <!-- </div> -->
           </div>
       
           <hr class="featurette-divider">
@@ -184,7 +186,9 @@ session_start();
             <div class="col-md-12 order-md-2">
               <h2 class="featurette-heading">How It Works</h2>
               <br>
-              <p class="lead">These shields were designed with high volume die-cutting in mind. Many commercial print shops have the equipment, and often the materials, to produce thousands of these shields in a short period of time.  This design was developed with our local printer <span class="place"><a href="http://www.reed-witting.com/">Reed & Witting</a></span>. They can also be made with laser cutting and digital cutters like Kongsberg machines.
+              <p class="lead"> You can create an account by registering with an email, username, and password. If you already have 
+                an account you can login. Once you are logged in, you can start making suggestions around the city. Upvote others' 
+                suggestions so the city can see which issues the public is most passionate about.
                 </p>
             </div>
 
@@ -221,31 +225,43 @@ session_start();
                       <tbody>
                         <tr>
                           <td><img src="icons/bike.png" alt="Logo" style="width:50px;"></td>
-                          <td></td>
+                          <td>This marker can be used for anything relating to bike parking someplace 
+                            to protected biking lanes. 
+                          </td>
                         </tr>
                         <tr>
                             <td><img src="icons/tree.png" alt="Logo" style="width:50px;"></td>
-                            <td></td>
+                            <td>This marker can be used for anything relating to local parks, land use,
+                              or forestry related concerns. 
+                            </td>
                         </tr>
                         <tr>
                             <td><img src="icons/traffic-light.png" alt="Logo" style="width:50px;"></td>
-                            <td></td>
+                            <td>This marker can be used for anything related to traffic lights, 
+                              stop signs, pot holes, or construction suggestions.
+                            </td>
                         </tr>
                         <tr>
                             <td><img src="icons/station.png" alt="Logo" style="width:50px;"></td>
-                            <td></td>
+                            <td>This marker can be used for anything relating to bus stops, 
+                              healthy ride bike stations, or signage for public transit.
+                            </td>
                         </tr>
                         <tr>
                             <td><img src="icons/parking.png" alt="Logo" style="width:50px;"></td>
-                            <td></td>
+                            <td>This marker can be used for anything relating to parking lots and the like.</td>
                         </tr>
                         <tr>
                           <td><img src="icons/walk.png" alt="Logo" style="width:50px;"></td>
-                          <td></td>
+                          <td>This marker can be used for anything that concerns pedestrians on the streets from 
+                            sidewalks to crosswalks to accessiblity. 
+                          </td>
                         </tr>
                         <tr>
                           <td><img src="icons/more.png" alt="Logo" style="width:50px;"></td>
-                          <td></td>
+                          <td>This marker can be used for any suggestion that does not fit in one of the 
+                            other categories.
+                          </td>
                         </tr>
       
                       </tbody>
