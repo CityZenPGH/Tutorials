@@ -54,7 +54,7 @@
     function addMarker(location, map) {
         
         //@Olivia put the form stuff in the the function here?
-        var contentString = '<form action="suggestion.php" method="post">'+
+        var contentString = '<form>'+
         '<div class="form-group">'+
           '<label for="Title">Title:</label>'+
           '<input type="title" class="form-control" placeholder="Title of Suggestion" id="title">'+
@@ -77,7 +77,7 @@
         '</div>'+
         '<button type="submit" class="btn btn-primary">Submit</button>'+
       '</form>'
-
+        
         var sugwindow = new google.maps.InfoWindow({
             content: contentString
         });

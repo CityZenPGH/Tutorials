@@ -141,10 +141,10 @@ margin-left: 4px;
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Register</a>
+                        <a class="nav-link" href="registration.php">Register</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="about.html">How CityZen Works</a>
+                    <a class="nav-link" href="about.php">How CityZen Works</a>
                     </li>
                 </ul>
                 </nav>
@@ -187,14 +187,14 @@ margin-left: 4px;
                         </div>
                     </form>
                 </div>
-                <div class="card-footer">
+                <!-- <div class="card-footer">
                     <div class="d-flex justify-content-center links">
                         Don't have an account?<a href="register.php">Sign Up</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="#">Forgot your password?</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
